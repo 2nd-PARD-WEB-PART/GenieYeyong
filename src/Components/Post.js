@@ -11,6 +11,8 @@ import cancel from"../Assets/취소.png";
 import Middleimg from "../Assets/취소이미지.png"
 import Middlewrite from "../Assets/문구.png"
 import MiddleOK from "../Assets/확인.png"
+import '../App.css';
+
 const Post=()=>{
 
     const [categorykind,setcategorykind]= useState(null);
@@ -132,7 +134,7 @@ const categoryToRoute = {
         <Smallword>넘어가면 속상해용..(짤려도 모름)</Smallword>
         </NicknameDiv>
         <ScholarDiv>
-          <div>학부 선택해봐용</div>
+          <ScholarChoice>학부 선택해봐용</ScholarChoice>
           <CategoryContainer>
             {category.map((category,index)=>(
                 <CategoryButton
@@ -262,23 +264,24 @@ cursor: pointer;
 padding-top: 12px;
 `
 const CategoryContainer = styled.div`
+width: 70%;
   display: flex;
+  flex-wrap: wrap;
   //background: #f3f3f3; // Replace with the color you want
   padding: 10px;
   border-radius: 5px; // Adjust as needed
 `;
 
 const CategoryButton = styled.button`
-  background: ${({activeCategoryId})=> activeCategoryId ? "#FFB800" : "#D3D3D3"};
-  color: ${({activeCategoryId}) => activeCategoryId ? "#FFF" : "#000"};
+  background: ${({activeCategoryId})=> activeCategoryId ? "#FFB800" : "#FFF"};
+  color: ${({activeCategoryId}) => activeCategoryId ? "#FFF" : "#AAA"};
+  border: ${({activeCategoryId}) => activeCategoryId ? "none" : "2px solid #BFBFBF"};
   text-align: center;
 font-family: DungGeunMo;
-font-size: 20px;
+font-size: 34px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
-  border: none;
-  border-radius: 5px;
   cursor: pointer;
   margin: 5px;
   transition: background-color 0.3s, color 0.3s;
@@ -416,6 +419,14 @@ margin-top: 50px;
   margin-left:136px ;
 `;
 
+const ScholarChoice = styled.div`
+color: #737373;
+font-family: DungGeunMo;
+font-size: 29.5px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+`
 
 
 const NewYear = styled.div`
@@ -448,12 +459,15 @@ margin-left: 136px;
   height: 60px;
   border: 4px solid #FFB800;
   background: #FFF;
-  color: #737373;
-  font-family: DungGeunMo;
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  color: #D1D1D1;
+font-family: DungGeunMo;
+font-size: 34px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+&::placeholder {
+    color: #D1D1D1;
+  }
 `;
 
 const PasswordDiv = styled.div`
@@ -479,6 +493,9 @@ font-size: 34px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
+&::placeholder {
+    color: #D1D1D1;
+  }
 `
 const CheckPasswordInput = styled.input`
 width: 479px;
@@ -492,6 +509,9 @@ font-size: 34px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
+&::placeholder {
+    color: #D1D1D1;
+  }
 `
 
 const CheckPassword = styled.div`
