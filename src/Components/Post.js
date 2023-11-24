@@ -25,7 +25,7 @@ const Post=()=>{
 
 
 
-    const category=[  { id:1, cate: "글로벌 리더십", emoji: "😭" },
+    const category=[  { id:1, cate: "글로벌리더십", emoji: "😭" },
     { id:2,cate: "국제어문", emoji: "🤯" },
     { id:3,cate: "경영경제", emoji: "🤔" },
     { id:4,cate: "법", emoji: "🤨" },
@@ -36,6 +36,7 @@ const Post=()=>{
     { id:9,cate: "전산전자", emoji: "🤨" },
     { id:10,cate: "상담심리사회복지", emoji: "🤨" },
     { id:11,cate: "ICT창업", emoji: "🤨" },
+    { id:12,cate: "콘텐츠융합디자인", emoji: "🤨" },
 
 ];
 const [activeCategoryId, setActiveCategoryId] = useState(category[0].id);
@@ -44,7 +45,7 @@ const [activeCategoryId, setActiveCategoryId] = useState(category[0].id);
 
 
 const categoryToRoute = {
-    "글로벌 리더십": "/GLS",
+    "글로벌리더십": "/gls",
     "국제어문": "/Inter",
     "경영경제": "/Busi",
     "법": "/Law",
@@ -55,7 +56,7 @@ const categoryToRoute = {
     "전산전자": "/csee",
     "상담심리사회복지": "/Psy",
     "ICT창업": "/Ict",
-
+    "콘텐츠융합디자인": "/Condi",
   };
   const handleSubmit = async(event) => {
     event.preventDefault();
@@ -264,7 +265,9 @@ cursor: pointer;
 padding-top: 12px;
 `
 const CategoryContainer = styled.div`
-width: 80%;
+width: 85%;
+margin-left: -15px;
+width: 85%;
 margin-left: -15px;
   display: flex;
   flex-wrap: wrap;
@@ -284,7 +287,9 @@ font-weight: 400;
 line-height: normal;
   cursor: pointer;
   margin: 10px;
+  margin: 10px;
   transition: background-color 0.3s, color 0.3s;
+  padding: 7px 24px;
   padding: 7px 24px;
 
   &:hover {
@@ -345,6 +350,7 @@ align-items: center;
 `
 const BackArrowImg=styled.img`
 margin-left: 30px;
+margin-left: 30px;
 width: 47px;
 height: 47px;
 flex-shrink: 0;
@@ -360,6 +366,8 @@ font-weight: 400;
 line-height: normal;
 `
 const DragonImg = styled.img`
+margin-left: 20px;
+padding-bottom: 10px;
 margin-left: 20px;
 padding-bottom: 10px;
 width: 56.036px;
@@ -413,6 +421,7 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
 width: 463px;
+padding-top: 45px;
 padding-top: 45px;
 `
 
@@ -475,8 +484,10 @@ font-weight: 400;
 
 const NicknameInput = styled.input`
 margin-top: 10px;
+margin-top: 10px;
 margin-left: 136px;
   width: 500px;
+  height: 50px;
   height: 50px;
   border: 4px solid #FFB800;
   background: #FFF;
@@ -487,6 +498,7 @@ font-weight: 400;
 line-height: normal;
 &::placeholder {
     color: #D1D1D1;
+    padding-left: 20px;
     padding-left: 20px;
   }
 `;
@@ -504,7 +516,9 @@ flex-direction: column;
 `
 const PasswordInput = styled.input`
 margin-top: 10px;
+margin-top: 10px;
 width: 479px;
+height: 50px;
 height: 50px;
 flex-shrink: 0;
 border: 3px solid #FFB800;
@@ -517,11 +531,14 @@ line-height: normal;
 &::placeholder {
     color: #D1D1D1;
     padding-left: 20px;
+    padding-left: 20px;
   }
 `
 const CheckPasswordInput = styled.input`
 margin-top: 10px;
+margin-top: 10px;
 width: 479px;
+height: 50px;
 height: 50px;
 flex-shrink: 0;
 border: 3px solid #FFB800;
@@ -533,6 +550,7 @@ font-weight: 400;
 line-height: normal;
 &::placeholder {
     color: #D1D1D1;
+    padding-left: 20px;
     padding-left: 20px;
   }
 `
