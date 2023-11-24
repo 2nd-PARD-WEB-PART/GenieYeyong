@@ -3,7 +3,9 @@ import axios from "axios";
 import styled from "styled-components";
 import { useState,useEffect } from "react";
 import { Link,useNavigate } from "react-router-dom";
-
+import Dragon from "../assets/Dragon.png";
+import Arrow from "../assets/arrow-left.png";
+import Submit from "../assets/submit.png";
 const Post=()=>{
 
     const [categorykind,setcategorykind]= useState(null);
@@ -16,19 +18,22 @@ const Post=()=>{
 
 
 
-    const category=[  { cate: "글로벌 리더십", emoji: "😭" },
-    { cate: "국제어문", emoji: "🤯" },
-    { cate: "경영경제", emoji: "🤔" },
-    { cate: "법", emoji: "🤨" },
-    { cate: "커뮤니케이션", emoji: "🤨" },
-    { cate: "공간환경시스템", emoji: "🤨" },
-    { cate: "기계제어", emoji: "🤨" },
-    { cate: "생명과학", emoji: "🤨" },
-    { cate: "전산전자", emoji: "🤨" },
-    { cate: "상담심리사회복지", emoji: "🤨" },
-    { cate: "ICT창업", emoji: "🤨" },
+    const category=[  { id:1, cate: "글로벌 리더십", emoji: "😭" },
+    { id:2,cate: "국제어문", emoji: "🤯" },
+    { id:3,cate: "경영경제", emoji: "🤔" },
+    { id:4,cate: "법", emoji: "🤨" },
+    { id:5,cate: "커뮤니케이션", emoji: "🤨" },
+    { id:6,cate: "공간환경시스템", emoji: "🤨" },
+    { id:7,cate: "기계제어", emoji: "🤨" },
+    { id:8,cate: "생명과학", emoji: "🤨" },
+    { id:9,cate: "전산전자", emoji: "🤨" },
+    { id:10,cate: "상담심리사회복지", emoji: "🤨" },
+    { id:11,cate: "ICT창업", emoji: "🤨" },
 
 ];
+
+const [activeCategoryId, setActiveCategoryId] = useState(category[0].id);
+
 
 const categoryToRoute = {
     "글로벌 리더십": "/GLS",
@@ -94,9 +99,9 @@ const categoryToRoute = {
       };
     return(<Div>
         <Updiv>
-        <button onClick={()=>{navigate(-1)}}>취소</button>
-        <Updivword>소원을 말해봐용</Updivword>
-        <img/>
+        <BackArrowImg src={Arrow} alt="화살표" onClick={()=>{navigate(-1)}}/>
+        <Updivword>다짐을 말해봐용</Updivword>
+        <DragonImg src={Dragon} alt="dragon"/>
 
         </Updiv>
         <Line/>
@@ -114,38 +119,54 @@ const categoryToRoute = {
         </NicknameDiv>
         <ScholarDiv>
           <div>학부 선택해봐용</div>
-          <ScholarChoiceDiv>
+          <CategoryContainer>
             {category.map((category,index)=>(
-                <Scholars
-                key={index}
-                onClick={()=>{setcategorykind(category.cate)}}
+                <CategoryButton
+                key={category.id}
+                activeCategoryId={activeCategoryId === category.id}
+                onClick={() => {
+                  setcategorykind(category.cate);
+                  setActiveCategoryId(category.id);
+                }}
                 >
-                    {category.cate}{category.emoji}
+                    {category.cate}
 
-                </Scholars>
+                </CategoryButton>
             ))}
-          </ScholarChoiceDiv>
+          </CategoryContainer>
         </ScholarDiv>
-        <div>새해 다짐을 적어봐용</div>
-        <textarea onChange={(e)=>
+        
+        <NewYear>
+        <NewYearWord>새해 다짐을 적어봐용</NewYearWord>
+        <NewYearInput type="text" onChange={(e)=>
         setwritefiled(e.target.value)} 
         maxLength={200}
         required
         />
-          <input
+        </NewYear>
+        <PasswordDiv>
+          <Password>
+            <PasswordWord>비밀번호 적어용 (15자 이내)</PasswordWord>
+          <PasswordInput
                 type="text"
                 placeholder="Enter password"
                 onChange={(e) => setpassword(e.target.value)}
                 required
             />
-            <input
+          </Password>
+          <CheckPassword>
+          <PasswordWord>비밀번호 확인해용</PasswordWord>
+            <CheckPasswordInput
                 type="text"
                 placeholder="Confirm password"
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
             />
-       
-    <button onClick={handleSubmit}>제출</button>
+          </CheckPassword>
+        </PasswordDiv>
+    <SubmitDiv>
+      <SubmitImg src={Submit} alt="" onClick={handleSubmit}/>
+    </SubmitDiv>
 
 
   
@@ -160,6 +181,38 @@ const categoryToRoute = {
 
 export default Post;
 
+const CategoryContainer = styled.div`
+  display: flex;
+  //background: #f3f3f3; // Replace with the color you want
+  padding: 10px;
+  border-radius: 5px; // Adjust as needed
+`;
+
+const CategoryButton = styled.button`
+  background: ${({activeCategoryId})=> activeCategoryId ? "#FFB800" : "#D3D3D3"};
+  color: ${({activeCategoryId}) => activeCategoryId ? "#FFF" : "#000"};
+  text-align: center;
+font-family: DungGeunMo;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background: #FFB800;
+    color: #FFF;
+  }
+
+  &:focus {
+    outline: none;
+  }
+`;
+
 const Div =styled.div`
 display: flex;
 flex-direction: column;
@@ -172,6 +225,12 @@ display: flex;
 flex-direction: row;
 width:100%;
 height: 95px;
+align-items: center;
+`
+const BackArrowImg=styled.img`
+width: 47px;
+height: 47px;
+flex-shrink: 0;
 `
 const Updivword=styled.div`
 width:353px;
@@ -183,7 +242,11 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
 `
-
+const DragonImg = styled.img`
+width: 56.036px;
+height: 59.9px;
+flex-shrink: 0;
+`
 const Line= styled.div`
 height: 1px;
 
@@ -260,6 +323,27 @@ line-height: normal;
   background-color: aqua;
 `;
 
+const NewYear = styled.div`
+  margin-left: 136px;
+  margin-top: 50px;
+`;
+
+const NewYearWord = styled.div`
+  color: #737373;
+font-family: DungGeunMo;
+font-size: 29.5px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+`;
+
+const NewYearInput = styled.div`
+width: 794px;
+height: 190px;
+flex-shrink: 0;
+border: 4px solid #FFB800;
+background: #FFF;
+`
 
 
 
@@ -276,3 +360,68 @@ margin-left: 136px;
   font-weight: 400;
   line-height: normal;
 `;
+
+const PasswordDiv = styled.div`
+margin-top: 50px;
+margin-left: 136px;
+display: flex;
+flex-direction: row;
+`
+
+const Password = styled.div`
+display: flex;
+flex-direction: column;
+`
+const PasswordInput = styled.input`
+width: 479px;
+height: 56px;
+flex-shrink: 0;
+border: 3px solid #FFB800;
+background: #FFF;
+color: #D1D1D1;
+font-family: DungGeunMo;
+font-size: 34px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+`
+const CheckPasswordInput = styled.input`
+width: 479px;
+height: 56px;
+flex-shrink: 0;
+border: 3px solid #FFB800;
+background: #FFF;
+color: #D1D1D1;
+font-family: DungGeunMo;
+font-size: 34px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+`
+
+const CheckPassword = styled.div`
+margin-left: 90px;
+display: flex;
+flex-direction: column;
+`
+const PasswordWord = styled.div`
+color: #737373;
+font-family: DungGeunMo;
+font-size: 29.5px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+`
+
+const SubmitDiv = styled.div`
+width: 100%;
+
+
+`
+
+const SubmitImg = styled.img`
+margin-left: 1534px;
+width: 273.267px;
+height: 84.444px;
+flex-shrink: 0;
+`
