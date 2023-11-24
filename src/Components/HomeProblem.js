@@ -22,13 +22,6 @@ const PListBox = styled.div`
 const StarBox = styled.div`
   flex-direction: column;
 `
-const Star = styled.img`
-  width: 30px;
-  height: 30px;
-  margin-left: 5px;
-  margin-right: 15px;
-  margin-top: 9px;
-`
 const ListName = styled.div`
   font-weight: bolder;
   font-size: large;
@@ -36,15 +29,14 @@ const ListName = styled.div`
 
 const Problem = ({ problem }) => (
     <div className="Problem">
-        <h2>인기 문제</h2>
-        <h4>{problem.length} problems</h4>
+        <h2>소원 리스트</h2>
+        <h4>{problem.length} 개의 소원이 있습니다</h4>
         <BigBox>
             {problem.map((it) => (
                 <PListBox key={it.id}>
-                    <Star src="/assets/images/staricon.png" alt="star" />
                     <StarBox>
-                        <ListName>{it.title}</ListName>
-                        <div>Saved: {it.savedCnt}</div>
+                        <ListName>{it.text}</ListName>
+                        <ListName>by {it.nickname}</ListName>
                     </StarBox>
                 </PListBox>
             ))}
