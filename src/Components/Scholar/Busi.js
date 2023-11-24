@@ -1,10 +1,15 @@
 import React from "react";
+import HomeProblem from "../HomeProblem";
 
 
 const Busi=()=>{
 
-    return(<>
-    </>)
+    return(
+        <>
+            <HomeProblem></HomeProblem>
+            {/* / */}
+        </>
+    )
 }
 
 export default Busi;

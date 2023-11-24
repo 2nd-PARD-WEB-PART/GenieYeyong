@@ -19,20 +19,32 @@ const PListBox = styled.div`
   flex-direction: row;
   background-color: ${(props) => {
         switch (props.type) {
-            case '타입1':
-                return 'red';
-            case '타입2':
-                return 'blue';
-            case '타입3':
-                return 'yellow';
-            case '타입4':
-                return 'green';
-            case '타입5':
-                return 'brown';
-            case '타입6':
-                return 'purple';
-            case '타입7':
-                return 'pink';
+            case '글로벌리더십':
+                return '#CF0000';
+            case '국제어문':
+                return '#5D43FF';
+            case '경영경제':
+                return '#8F50DF';
+            case '법':
+                return '#7927E1';
+            case '커뮤니케이션':
+                return '#00CFDD';
+            case '공간환경시스템':
+                return '#00A0FF';
+            case '기계제어':
+                return '#33C300';
+            case '상담심리사회복지':
+                return '#FFB800';
+            case '생명과학':
+                return '#FF5F00';
+            case '전산전자':
+                return '#D800DD';
+            case 'ICT창업':
+                return '#FF258C';
+            case '콘텐츠융합디자인':
+                return '#BDFF00';
+            default:
+                return 'gray';
         }
     }};
 `
@@ -44,12 +56,12 @@ const ListName = styled.div`
   font-size: large;
 `
 
-const Problem = ({ problem }) => (
+const HomeProblem = ({ problem }) => (
     <div className="Problem">
         <h4>{problem.length} 개의 소원이 있습니다</h4>
         <BigBox>
             {problem.map((it) => (
-                <PListBox key={it.id}>
+                <PListBox key={it.id} type={it.type}>
                     <StarBox>
                         <ListName>{it.text}</ListName>
                         <ListName>by {it.nickname}</ListName>
@@ -60,8 +72,8 @@ const Problem = ({ problem }) => (
     </div>
 );
 
-Problem.defaultProps = {
+HomeProblem.defaultProps = {
     problem: [],
 };
 
-export default Problem;
+export default HomeProblem;
