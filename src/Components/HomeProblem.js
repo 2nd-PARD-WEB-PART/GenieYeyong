@@ -29,7 +29,6 @@ const ListName = styled.div`
 
 const Problem = ({ problem }) => (
     <div className="Problem">
-        <h2>소원 리스트</h2>
         <h4>{problem.length} 개의 소원이 있습니다</h4>
         <BigBox>
             {problem.map((it) => (
