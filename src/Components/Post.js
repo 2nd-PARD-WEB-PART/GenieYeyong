@@ -41,9 +41,24 @@ const categoryToRoute = {
     "ICT창업": "/Ict",
 
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = async(event) => {
     event.preventDefault();
     // Here you can also handle the form submission, like sending data to an API
+
+
+    const formData = {
+        "nickname": nickname,
+        "contents": writefield,
+        "type": categorykind,
+       
+      };
+
+    try{
+        const response= await axios.post('http://172.18.140.44:8080/wish2024/wishWrite',formData);
+        console.log(response.data);
+    }catch(error){
+        console.error("Error submitting form:",error);
+    }
 
     // Navigate to the corresponding route
     const route = categoryToRoute[categorykind];
@@ -54,6 +69,16 @@ const categoryToRoute = {
     console.log(categorykind);
     console.log(nickname);
     console.log(writefield);
+
+    const handleCancelClick = () => {
+        const shouldProceed = window.confirm(
+          "임예진한테 죽고 싶습니까?"
+        );
+    
+        if (shouldProceed) {
+          navigate("/main/banner");
+        }
+      };
     return(<div>
         <input type="text" onChange={(e)=>
         setnickname(e.target.value)
@@ -76,6 +101,7 @@ const categoryToRoute = {
         maxLength={200}
         />
     <button onClick={handleSubmit}>제출</button>
+    <button onClick={handleCancelClick}>취소</button>
 
   
 
