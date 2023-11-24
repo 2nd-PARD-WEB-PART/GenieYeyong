@@ -100,13 +100,13 @@ const categoryToRoute = {
           <div>학부 선택해봐용</div>
           <ScholarChoiceDiv>
             {category.map((category,index)=>(
-                <div 
+                <Scholars
                 key={index}
                 onClick={()=>{setcategorykind(category.cate)}}
                 >
                     {category.cate}{category.emoji}
 
-                </div>
+                </Scholars>
             ))}
           </ScholarChoiceDiv>
         </ScholarDiv>
@@ -178,6 +178,12 @@ const ScholarChoiceDiv = styled.div`
   background-color: rebeccapurple;
   display: flex;
   flex-direction: row;
+`;
+
+const Scholars = styled.div`
+  width: auto;
+  margin: 5px;
+  background-color: aqua;
 `;
 
 
