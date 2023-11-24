@@ -74,15 +74,7 @@ const categoryToRoute = {
     console.log(nickname);
     console.log(writefield);
 
-    const handleCancelClick = () => {
-        const shouldProceed = window.confirm(
-          "임예진한테 죽고 싶습니까?"
-        );
     
-        if (shouldProceed) {
-          navigate(-1); // 뒤로 감
-        }
-      };
     return(<div>
         <input type="text" onChange={(e)=>
         setnickname(e.target.value)
@@ -107,7 +99,6 @@ const categoryToRoute = {
         required
         />
     <button onClick={handleSubmit}>제출</button>
-    <button onClick={handleCancelClick}>취소</button>
 
   
 

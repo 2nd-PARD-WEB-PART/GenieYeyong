@@ -57,41 +57,45 @@ const Home=()=>{
 
     return (
         <>
-          <MoveBox>
-            <Link to='/gls'>
-              <MoneBtn>글로벌리더십학부</MoneBtn>
-            </Link>
-            <Link to='/Inter'>
-              <MoneBtn>국제어문학부</MoneBtn>
-            </Link>
-            <Link to='/Busi'>
-              <MoneBtn>경영경제학부</MoneBtn>
-            </Link>
-            <Link to='/Commu'>
-              <MoneBtn>커뮤니케이션학부</MoneBtn>
-            </Link>
-            <Link to='/csee'>
-              <MoneBtn>전산전자공학부</MoneBtn>
-            </Link>
-            <Link to='/Ict'>
-              <MoneBtn>ICT 창업학부</MoneBtn>
-            </Link>
-            <Link to='/Law'>
-              <MoneBtn>법학부</MoneBtn>
-            </Link>
-            <Link to='/Life'>
-              <MoneBtn>생명과학부</MoneBtn>
-            </Link>
-            <Link to='/March'>
-              <MoneBtn>기계공학부</MoneBtn>
-            </Link>
-            <Link to='/Psy'>
-              <MoneBtn>상담심리사회복지학부</MoneBtn>
-            </Link>
-            <Link to='/Spac'>
-              <MoneBtn>공간환경시스템공학부</MoneBtn>
-            </Link>
-          </MoveBox>
+          <MainDiv>
+            <TitleDiv>소원을 말해봐용</TitleDiv>
+            <MoveBox>
+              <FirstLinket to='/gls'>
+                글로벌리더십
+              </FirstLinket>
+              <FirstLinket to='/Inter'>
+                국제어문
+              </FirstLinket>
+              <FirstLinket to='/Busi'>
+                경영경제
+              </FirstLinket>
+              <FirstLinket to='/Commu'>
+                커뮤니케이션
+              </FirstLinket>
+              <FirstLinket to='/csee'>
+                전산전자
+              </FirstLinket>
+              <FirstLinket to='/Ict'>
+                ICT창업
+              </FirstLinket>
+              <FirstLinket to='/Law'>
+                법
+              </FirstLinket>
+              <FirstLinket to='/Life'>
+                생명과학
+              </FirstLinket>
+              <FirstLinket to='/March'>
+                기계공학
+              </FirstLinket>
+              <FirstLinket to='/Psy'>
+                상담심리사회복지
+              </FirstLinket>
+              <FirstLinket to='/Spac'>
+                공간환경시스템
+              </FirstLinket>
+            </MoveBox>
+            <BottomDiv>당신의 학부 페이지에서 나의 다짐을 작성하세요!</BottomDiv>
+          </MainDiv>
         </>
       );
 }
@@ -99,59 +103,71 @@ const Home=()=>{
 
 export default Home;
 
+const FirstLinket=styled(Link)`
+  margin-left: 60px;
+  text-align: center;
+  color: #000;
+  font-family: DungGeunMo;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 300px;
+  height: 100px;
+  flex-shrink: 0;
+  background-color: #8F50DF;
+  stroke-width: 2px;
+  stroke: #000;
+`
+
+const MainDiv = styled.div`
+  width: 100vw;
+  height:100vh;
+  margin: 0;
+  background-color: #00008A;
+  display: flex;
+  flex-direction: column;
+`;
+
+const TitleDiv = styled.div`
+  width: 100vw;
+  height:20vh;
+  text-align: center;
+  padding-top: 60px;
+  font-size: 60px;
+  color: #FFF;
+`;
+
+const BottomDiv = styled.div`
+  width: 100vw;
+  height:20vh;
+  text-align: center;
+  font-size: 50px;
+  color: #FFF;
+`;
+
 const MoveBox = styled.div`
+  width: 90vw;
+  height: 40vh;
+  margin: 0 0 0 -2%;
+  padding: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   padding: 5%;
 `
 
-const MoneBtn = styled.button`
-  background-color: lightgray;
-  margin: 10px; /* 수정: margin 값을 픽셀로 변경 */
-  width: 10;  /* 수정: 일정한 간격으로 버튼 배치 */
-  box-sizing: border-box; /* 수정: margin이 너비에 영향을 주지 않도록 설정 */
-`
-
-const BigBox = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-`
-const PListBox = styled.div`
-  color: white;
-  justify-content: flex-start;
+const MoneButton = styled.button`
+  color: #000;
+  font-family: DungGeunMo;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   width: 250px;
-  border: 1px solid transparent;
-  box-shadow: 5px 5px 10px darkgray;
-  border-radius: 15px;
-  margin: 10px;
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  background-color: ${(props) => {
-        switch (props.type) {
-            case '타입1':
-                return 'red';
-            case '타입2':
-                return 'blue';
-            case '타입3':
-                return 'yellow';
-            case '타입4':
-                return 'green';
-            case '타입5':
-                return 'brown';
-            case '타입6':
-                return 'purple';
-            case '타입7':
-                return 'pink';
-        }
-    }};
-`
-const StarBox = styled.div`
-  flex-direction: column;
-`
-const ListName = styled.div`
-  font-weight: bolder;
-  font-size: large;
-`
+  height: 60px;
+  flex-shrink: 0;
+  background-color: #8F50DF;
+  stroke-width: 2px;
+  stroke: #000;
+`;
