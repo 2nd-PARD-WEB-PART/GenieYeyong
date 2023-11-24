@@ -4,6 +4,8 @@ import React, { useEffect } from "react";
 import HomeProblem from "./HomeProblem";
 import styled, { keyframes,css } from 'styled-components';
 import { useState } from "react";
+import { ReactDOM } from "react";
+import { Link } from "react-router-dom";
 // Keyframes for moving up animation
 
 
@@ -54,24 +56,62 @@ const Home=()=>{
     ];
 
     return (
-        <div>
-          <h4>{WishList.length} 개의 소원이 있습니다</h4>
-          <BigBox>
-            {WishList.map((it) => (
-              <PListBox key={it.id} type={it.type}>
-                <StarBox>
-                  <ListName>{it.text}</ListName>
-                  <ListName>by {it.nickname}</ListName>
-                </StarBox>
-              </PListBox>
-            ))}
-          </BigBox>
-        </div>
+        <>
+          <MoveBox>
+            <Link to='/gls'>
+              <MoneBtn>글로벌리더십학부</MoneBtn>
+            </Link>
+            <Link to='/Inter'>
+              <MoneBtn>국제어문학부</MoneBtn>
+            </Link>
+            <Link to='/Busi'>
+              <MoneBtn>경영경제학부</MoneBtn>
+            </Link>
+            <Link to='/Commu'>
+              <MoneBtn>커뮤니케이션학부</MoneBtn>
+            </Link>
+            <Link to='/csee'>
+              <MoneBtn>전산전자공학부</MoneBtn>
+            </Link>
+            <Link to='/Ict'>
+              <MoneBtn>ICT 창업학부</MoneBtn>
+            </Link>
+            <Link to='/Law'>
+              <MoneBtn>법학부</MoneBtn>
+            </Link>
+            <Link to='/Life'>
+              <MoneBtn>생명과학부</MoneBtn>
+            </Link>
+            <Link to='/March'>
+              <MoneBtn>기계공학부</MoneBtn>
+            </Link>
+            <Link to='/Psy'>
+              <MoneBtn>상담심리사회복지학부</MoneBtn>
+            </Link>
+            <Link to='/Spac'>
+              <MoneBtn>공간환경시스템공학부</MoneBtn>
+            </Link>
+          </MoveBox>
+        </>
       );
 }
 
 
 export default Home;
+
+const MoveBox = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 5%;
+`
+
+const MoneBtn = styled.button`
+  background-color: lightgray;
+  margin: 10px; /* 수정: margin 값을 픽셀로 변경 */
+  width: 10;  /* 수정: 일정한 간격으로 버튼 배치 */
+  box-sizing: border-box; /* 수정: margin이 너비에 영향을 주지 않도록 설정 */
+`
 
 const BigBox = styled.div`
   display: flex;

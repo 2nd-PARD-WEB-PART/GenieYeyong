@@ -10,7 +10,6 @@ const PListBox = styled.div`
   color: white;
   justify-content: flex-start;
   width: 250px;
-  background-color: #FA5858;
   border: 1px solid transparent;
   box-shadow: 5px 5px 10px darkgray;
   border-radius: 15px;
@@ -18,6 +17,24 @@ const PListBox = styled.div`
   padding: 10px;
   display: flex;
   flex-direction: row;
+  background-color: ${(props) => {
+        switch (props.type) {
+            case '타입1':
+                return 'red';
+            case '타입2':
+                return 'blue';
+            case '타입3':
+                return 'yellow';
+            case '타입4':
+                return 'green';
+            case '타입5':
+                return 'brown';
+            case '타입6':
+                return 'purple';
+            case '타입7':
+                return 'pink';
+        }
+    }};
 `
 const StarBox = styled.div`
   flex-direction: column;
