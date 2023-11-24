@@ -44,7 +44,11 @@ const categoryToRoute = {
   const handleSubmit = async(event) => {
     event.preventDefault();
     // Here you can also handle the form submission, like sending data to an API
-
+     // Check if any field is empty
+     if (!nickname || !writefield || !categorykind) {
+        alert('모든 값을 입력해야 한다.'); // Show an alert to the user
+        return; // Prevent form submission
+    }
 
     const formData = {
         "nickname": nickname,
@@ -85,7 +89,8 @@ const categoryToRoute = {
         
         }
         maxLength={10}
-        />
+
+        required/>
         <div>{category.map((category,index)=>(
             <div 
             key={index}
@@ -99,6 +104,7 @@ const categoryToRoute = {
         <textarea onChange={(e)=>
         setwritefiled(e.target.value)} 
         maxLength={200}
+        required
         />
     <button onClick={handleSubmit}>제출</button>
     <button onClick={handleCancelClick}>취소</button>
