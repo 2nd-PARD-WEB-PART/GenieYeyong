@@ -13,6 +13,7 @@ import Spac from "./Components/Scholar/Spac";
 import Ict from "./Components/Scholar/ICT";
 import Law from "./Components/Scholar/Law";
 import Life from "./Components/Scholar/Life";
+import Condi from "./Components/Scholar/Condi";
 
 
 
@@ -39,8 +40,9 @@ const Routers = () =>{
             <Route path="/March" element={<Mach/>}/>
             <Route path="/Psy" element={<Psy/>}/>
             <Route path="/Spac" element={<Spac/>}/>
-  
+            <Route path="/Condi" element={<Condi/>}/>
 
+            <Route path="/Post" element={<Post/>}/>
 
             </Routes>
 

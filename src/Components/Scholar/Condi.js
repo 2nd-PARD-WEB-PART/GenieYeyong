@@ -4,27 +4,19 @@ import { useState, useEffect } from "react";
 import Modal from "react-modal";
 import axios from "axios";
 
-
-const Life=()=>{
+const Condi=()=>{
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [data, setData] = useState([]);
 
     useEffect(() => {
         axios
-          .get("http://172.18.140.44:8080/wish2024/findTypeWish/생명과학")
+          .get("http://172.18.140.44:8080/wish2024/findTypeWish/콘텐츠융합디자인")
           .then((response) => {
             console.log("response: " + JSON.stringify(response.data.data));
             setData(response.data.data);
           })
           .catch((error) => console.log("error: " + error));
       }, []); 
-
-    const openModal = () => {
-        setModalIsOpen(true);
-    };
-    const closeModal = () => {
-        setModalIsOpen(false);
-    };
 
     return(
         <>
@@ -33,4 +25,5 @@ const Life=()=>{
     )
 }
 
-export default Life;
+
+export default Condi;

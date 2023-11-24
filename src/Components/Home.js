@@ -10,178 +10,150 @@ import { Link } from "react-router-dom";
 
 
 const Home=()=>{
-    const WishList = [
-        {
-            id: 0,
-            type: '글로벌리더십',
-            nickname: '이지윤',
-            text: '글로벌',
-        },
-        {
-            id: 1,
-            type: '국제어문',
-            nickname: '한오석',
-            text: '국제어문',
-        },
-        {
-            id: 2,
-            type: '경영경제',
-            nickname: '전에벤',
-            text: '경영경제',
-        },
-        {
-            id: 3,
-            type: '법',
-            nickname: '강산길',
-            text: '법',
-        },
-        {
-            id: 4,
-            type: '커뮤니케이션',
-            nickname: '김파드',
-            text: '컴케',
-        },
-        {
-            id: 5,
-            type: '공간환경시스템',
-            nickname: '최느헴',
-            text: '공시',
-        },
-        {
-            id: 6,
-            type: '기계제어',
-            nickname: '박뉴턴',
-            text: '기계',
-        },
-        {
-            id: 7,
-            type: '상담심리사회복지',
-            nickname: '박뉴턴',
-            text: '상심',
-        },
-        {
-          id: 8,
-          type: '생명과학',
-          nickname: '박뉴턴',
-          text: '생과',
-        }, 
-        {
-          id: 9,
-          type: '전산전자',
-          nickname: '박뉴턴',
-          text: '전전',
-        }, 
-        {
-          id: 10,
-          type: 'ICT창업',
-          nickname: '박뉴턴',
-          text: 'ICT',
-        }, 
-        {
-          id: 11,
-          type: '콘텐츠융합디자인',
-          nickname: '박뉴턴',
-          text: '콘융디',
-        }, 
-    ];
-
     return (
-        <>
+      <>
+        <MainDiv>
+          <TitleDiv>
+            <TitleText>새해 다짐을 공유해봐용</TitleText>
+            <TitleImg src={'./img/용용이.png'} />
+          </TitleDiv>
           <MoveBox>
-            <Link to='/gls'>
-              <MoneBtn>글로벌리더십학부</MoneBtn>
-            </Link>
-            <Link to='/Inter'>
-              <MoneBtn>국제어문학부</MoneBtn>
-            </Link>
-            <Link to='/Busi'>
-              <MoneBtn>경영경제학부</MoneBtn>
-            </Link>
-            <Link to='/Commu'>
-              <MoneBtn>커뮤니케이션학부</MoneBtn>
-            </Link>
-            <Link to='/csee'>
-              <MoneBtn>전산전자공학부</MoneBtn>
-            </Link>
-            <Link to='/Ict'>
-              <MoneBtn>ICT 창업학부</MoneBtn>
-            </Link>
-            <Link to='/Law'>
-              <MoneBtn>법학부</MoneBtn>
-            </Link>
-            <Link to='/Life'>
-              <MoneBtn>생명과학부</MoneBtn>
-            </Link>
-            <Link to='/March'>
-              <MoneBtn>기계공학부</MoneBtn>
-            </Link>
-            <Link to='/Psy'>
-              <MoneBtn>상담심리사회복지학부</MoneBtn>
-            </Link>
-            <Link to='/Spac'>
-              <MoneBtn>공간환경시스템공학부</MoneBtn>
-            </Link>
+            <FirstLinket to='/gls'>
+              <LinkImage src={'./img/GLS.png'} />
+            </FirstLinket>
+            <FirstLinket to='/Inter'>
+              <LinkImage src={'./img/국제.png'} />
+            </FirstLinket>
+            <FirstLinket to='/Busi'>
+              <LinkImage src={'./img/경경.png'} />
+            </FirstLinket>
+            <FirstLinket to='/Commu'>
+              <LinkImage src={'./img/컴케.png'} />
+            </FirstLinket>
+            <FirstLinket to='/csee'>
+              <LinkImage src={'./img/전산전자.png'} />
+            </FirstLinket>
+            <FirstLinket to='/Ict'>
+              <LinkImage src={'./img/아창.png'} />
+            </FirstLinket>
+            <FirstLinket to='/Law'>
+              <LinkImage src={'./img/법.png'} />
+            </FirstLinket>
+            <FirstLinket to='/Life'>
+              <LinkImage src={'./img/생명과학.png'} />
+            </FirstLinket>
+            <FirstLinket to='/March'>
+              <LinkImage src={'./img/기계.png'} />
+            </FirstLinket>
+            <FirstLinket to='/Psy'>
+              <LinkImage src={'./img/상담사회.png'} />
+            </FirstLinket>
+            <FirstLinket to='/Spac'>
+              <LinkImage src={'./img/공시.png'} />
+            </FirstLinket>
+            <FirstLinket to='/Condi'>
+              <LinkImage src={'./img/콘융디.png'} />
+            </FirstLinket>
           </MoveBox>
-        </>
-      );
+          <BottomDiv>당신의 학부 페이지에서 나의 다짐을 작성하세요!</BottomDiv>
+        </MainDiv>
+      </>
+    );
 }
 
 
 export default Home;
 
+const FirstLinket=styled(Link)`
+margin-left: 60px;
+text-align: center;
+color: #000;
+font-family: DungGeunMo;
+font-size: 35px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+width: 284px;
+height: 98px;
+flex-shrink: 0;
+stroke-width: 2px;
+stroke: #000;
+text-decoration: none; /* 텍스트에 밑줄 제거 */
+
+`
+
+const MainDiv = styled.div`
+width: 100vw;
+height:100vh;
+background-image: url('/img/HomeBack.jpeg');
+display: flex;
+flex-direction: column;
+`;
+
+const TitleDiv = styled.div`
+width: 100vw;
+height:20vh;
+text-align: center;
+padding-top: 60px;
+font-size: 60px;
+color: #796F66;
+font-family: DungGeunMo;
+display: flex;
+flex-direction: row;
+justify-content: center; // 수직 중앙 정렬 추가
+  align-items: center; // 수평 중앙 정렬 추가
+`;
+
+const TitleText = styled.div`
+  margin-right: 1%;
+
+`;
+const TitleImg = styled.img`
+  width: 56px; // 이미지를 링크 박스에 꽉 차게 표시
+  height: 59px; // 이미지를 링크 박스에 꽉 차게 표시
+  object-fit: cover; // 이미지가 링크 박스에 가득 차게 표시
+  margin-bottom: 10px;
+`;
+
+const BottomDiv = styled.div`
+width: 100vw;
+height:20vh;
+text-align: center;
+font-size: 50px;
+color: #69635D;
+font-family: DungGeunMo;
+`;
+
 const MoveBox = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 5%;
+width: 80%;
+height: 90%;
+margin: 0 auto;
+padding: 15%;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+padding: 5%;
+margin-bottom: 150px;
 `
 
-const MoneBtn = styled.button`
-  background-color: lightgray;
-  margin: 10px; /* 수정: margin 값을 픽셀로 변경 */
-  width: 10;  /* 수정: 일정한 간격으로 버튼 배치 */
-  box-sizing: border-box; /* 수정: margin이 너비에 영향을 주지 않도록 설정 */
-`
+const MoneButton = styled.button`
+color: #000;
+font-family: DungGeunMo;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+width: 250px;
+height: 60px;
+flex-shrink: 0;
+background-color: #8F50DF;
+stroke-width: 2px;
+stroke: #000;
+`;
 
-const BigBox = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-`
-const PListBox = styled.div`
-  color: white;
-  justify-content: flex-start;
-  width: 250px;
-  border: 1px solid transparent;
-  box-shadow: 5px 5px 10px darkgray;
-  border-radius: 15px;
-  margin: 10px;
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
-  background-color: ${(props) => {
-        switch (props.type) {
-            case '타입1':
-                return 'red';
-            case '타입2':
-                return 'blue';
-            case '타입3':
-                return 'yellow';
-            case '타입4':
-                return 'green';
-            case '타입5':
-                return 'brown';
-            case '타입6':
-                return 'purple';
-            case '타입7':
-                return 'pink';
-        }
-    }};
-`
-const StarBox = styled.div`
-  flex-direction: column;
-`
-const ListName = styled.div`
-  font-weight: bolder;
-  font-size: large;
-`
+const LinkImage = styled.img`
+  width: 100%; // 이미지를 링크 박스에 꽉 차게 표시
+  height: 100%; // 이미지를 링크 박스에 꽉 차게 표시
+  object-fit: cover; // 이미지가 링크 박스에 가득 차게 표시
+  border-bottom: 2px solid #000; // 이미지 아래에 선 추가
+`;
