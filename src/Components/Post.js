@@ -96,16 +96,20 @@ const categoryToRoute = {
         required/>
         <div>넘어가면 속상해용..(짤려도 모름)</div>
         </NicknameDiv>
-        <div>학부 선택해봐용</div>
-        <div>{category.map((category,index)=>(
-            <div 
-            key={index}
-            onClick={()=>{setcategorykind(category.cate)}}
-            >
-                {category.cate}{category.emoji}
+        <ScholarDiv>
+          <div>학부 선택해봐용</div>
+          <ScholarChoiceDiv>
+            {category.map((category,index)=>(
+                <div 
+                key={index}
+                onClick={()=>{setcategorykind(category.cate)}}
+                >
+                    {category.cate}{category.emoji}
 
-            </div>
-        ))}</div>
+                </div>
+            ))}
+          </ScholarChoiceDiv>
+        </ScholarDiv>
         <div>새해 다짐을 적어봐용</div>
         <textarea onChange={(e)=>
         setwritefiled(e.target.value)} 
@@ -136,6 +140,12 @@ const FormDiv = styled.div`
   background-color: pink;
   display: flex;
   flex-direction: column;
+  color: #737373;
+  font-family: DungGeunMo;
+  font-size: 32.5px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 
 `;
 
@@ -146,7 +156,32 @@ const NicknameDiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: baseline;
+  color: #737373;
+  font-family: DungGeunMo;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 `;
+
+const ScholarDiv = styled.div`
+  width: calc(100vw-170px);
+  height: 20vh;
+  background-color: gainsboro;
+  display: flex;
+  flex-direction: column;
+`;
+
+const ScholarChoiceDiv = styled.div`
+  width: calc(100vw-170px);
+  height: 20vh;
+  background-color: rebeccapurple;
+  display: flex;
+  flex-direction: row;
+`;
+
+
+
 
 const NicknameInput = styled.input`
   width: 500px;
