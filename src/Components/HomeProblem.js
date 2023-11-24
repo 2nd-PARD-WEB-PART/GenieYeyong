@@ -40,20 +40,28 @@ const HomeProblem = ({ problem }) => {
       return;
     }
     axios
-    .delete(`http://172.18.140.44:8080/wish2024/deleteWish/${id}`, {
-      data : {"password": password,}
-    })
-    // 성공
-    .then((response) => {
+      .delete(`http://172.18.140.44:8080/wish2024/deleteWish/${id}`, {
+        data: { password: password },
+      })
+      .then((response) => {
         console.log("삭제되었습니다.", response);
-    })
-    // 실패
-    .catch((error) => {
+        // 삭제가 완료된 후 상태 업데이트 및 페이지 리렌더링
+        const updatedProblems = filteredProblems
+          ? filteredProblems.filter((it) => it.id !== id)
+          : problem.filter((it) => it.id !== id);
+  
+        setFilteredProblems(updatedProblems);
+  
+        // 모달 창 닫기
+        closeModal();
+      })
+      .catch((error) => {
         console.error("삭제 중 오류가 발생했습니다.", error);
         console.error("ID", id);
         console.error("PW", password);
-    });
+      });
   };
+  
 
   return (
     <Back>
