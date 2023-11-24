@@ -74,15 +74,29 @@ const categoryToRoute = {
     console.log(nickname);
     console.log(writefield);
 
+    const handleCancelClick = () => {
+        const shouldProceed = window.confirm(
+          "임예진한테 죽고 싶습니까?"
+        );
     
+        if (shouldProceed) {
+          navigate(-1); // 뒤로 감
+        }
+      };
     return(<div>
-        <input type="text" onChange={(e)=>
+        <FormDiv>
+        <div>닉네임이 뭔가용</div>
+        <NicknameDiv>
+        <NicknameInput type="text" placeholder="갯춰크레용" onChange={(e)=>
         setnickname(e.target.value)
         
         }
         maxLength={10}
 
         required/>
+        <div>넘어가면 속상해용..(짤려도 모름)</div>
+        </NicknameDiv>
+        <div>학부 선택해봐용</div>
         <div>{category.map((category,index)=>(
             <div 
             key={index}
@@ -92,13 +106,15 @@ const categoryToRoute = {
 
             </div>
         ))}</div>
-
+        <div>새해 다짐을 적어봐용</div>
         <textarea onChange={(e)=>
         setwritefiled(e.target.value)} 
         maxLength={200}
         required
         />
+        </FormDiv>
     <button onClick={handleSubmit}>제출</button>
+    <button onClick={()=>{navigate(-1)}}>취소</button>
 
   
 
@@ -111,3 +127,36 @@ const categoryToRoute = {
 }
 
 export default Post;
+
+
+const FormDiv = styled.div`
+  width: calc(100vw-170px) ;
+  height: 60vh;
+  margin-left: 170px;
+  background-color: pink;
+  display: flex;
+  flex-direction: column;
+
+`;
+
+const NicknameDiv = styled.div`
+  width: calc(100vw-170px);
+  height: 80px;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+`;
+
+const NicknameInput = styled.input`
+  width: 500px;
+  height: 60px;
+  border: 4px solid #FFB800;
+  background: #FFF;
+  color: #737373;
+  font-family: DungGeunMo;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+`;
