@@ -16,19 +16,21 @@ const Post=()=>{
 
 
 
-    const category=[  { cate: "글로벌 리더십", emoji: "😭" },
-    { cate: "국제어문", emoji: "🤯" },
-    { cate: "경영경제", emoji: "🤔" },
-    { cate: "법", emoji: "🤨" },
-    { cate: "커뮤니케이션", emoji: "🤨" },
-    { cate: "공간환경시스템", emoji: "🤨" },
-    { cate: "기계제어", emoji: "🤨" },
-    { cate: "생명과학", emoji: "🤨" },
-    { cate: "전산전자", emoji: "🤨" },
-    { cate: "상담심리사회복지", emoji: "🤨" },
-    { cate: "ICT창업", emoji: "🤨" },
+
+    const category=[  { id:1, cate: "글로벌 리더십", emoji: "😭" },
+    { id:2,cate: "국제어문", emoji: "🤯" },
+    { id:3,cate: "경영경제", emoji: "🤔" },
+    { id:4,cate: "법", emoji: "🤨" },
+    { id:5,cate: "커뮤니케이션", emoji: "🤨" },
+    { id:6,cate: "공간환경시스템", emoji: "🤨" },
+    { id:7,cate: "기계제어", emoji: "🤨" },
+    { id:8,cate: "생명과학", emoji: "🤨" },
+    { id:9,cate: "전산전자", emoji: "🤨" },
+    { id:10,cate: "상담심리사회복지", emoji: "🤨" },
+    { id:11,cate: "ICT창업", emoji: "🤨" },
 
 ];
+const [activeCategoryId, setActiveCategoryId] = useState(category[0].id);
 
 const categoryToRoute = {
     "글로벌 리더십": "/GLS",
@@ -114,17 +116,21 @@ const categoryToRoute = {
         </NicknameDiv>
         <ScholarDiv>
           <div>학부 선택해봐용</div>
-          <ScholarChoiceDiv>
+          <CategoryContainer>
             {category.map((category,index)=>(
-                <Scholars
-                key={index}
-                onClick={()=>{setcategorykind(category.cate)}}
+                <CategoryButton
+                key={category.id}
+                activeCategoryId={activeCategoryId === category.id}
+                onClick={() => {
+                  setcategorykind(category.cate);
+                  setActiveCategoryId(category.id);
+                }}
                 >
-                    {category.cate}{category.emoji}
+                    {category.cate}
 
-                </Scholars>
+                </CategoryButton>
             ))}
-          </ScholarChoiceDiv>
+          </CategoryContainer>
         </ScholarDiv>
         <div>새해 다짐을 적어봐용</div>
         <textarea onChange={(e)=>
@@ -159,6 +165,38 @@ const categoryToRoute = {
 }
 
 export default Post;
+
+const CategoryContainer = styled.div`
+  display: flex;
+  //background: #f3f3f3; // Replace with the color you want
+  padding: 10px;
+  border-radius: 5px; // Adjust as needed
+`;
+
+const CategoryButton = styled.button`
+  background: ${({activeCategoryId})=> activeCategoryId ? "#FFB800" : "#D3D3D3"};
+  color: ${({activeCategoryId}) => activeCategoryId ? "#FFF" : "#000"};
+  text-align: center;
+font-family: DungGeunMo;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    background: #FFB800;
+    color: #FFF;
+  }
+
+  &:focus {
+    outline: none;
+  }
+`;
 
 const Div =styled.div`
 display: flex;
@@ -255,7 +293,7 @@ font-size: 20px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
-  width: 100px;
+  width: auto;
   margin: 5px;
   background-color: aqua;
 `;
