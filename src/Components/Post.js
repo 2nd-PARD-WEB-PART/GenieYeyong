@@ -80,7 +80,7 @@ const categoryToRoute = {
         );
     
         if (shouldProceed) {
-          navigate("/main/banner");
+          navigate(-1); // 뒤로 감
         }
       };
     return(<div>
