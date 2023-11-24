@@ -63,6 +63,12 @@ const HomeProblem = ({ problem }) => {
           <Major>{problem[0].type}</Major>
         )}
         <TitleImg src={'./img/용용이.png'} />
+        <Dummy> </Dummy>
+        <SearchText>내가 쓴 글 찾아용</SearchText>
+        <PwdSearch>
+        <InputPwd onChange={(e) => setSearchValue(e.target.value)} />
+        <Search onClick={handleSearch}>검색</Search>
+        </PwdSearch>
       </Header>
 
       <Body>
@@ -87,11 +93,6 @@ const HomeProblem = ({ problem }) => {
           ))
         )}
         </BigBox>
-
-        <PwdSearch>
-        <InputPwd onChange={(e) => setSearchValue(e.target.value)} />
-        <Search onClick={handleSearch}>검색</Search>
-        </PwdSearch>
 
         {/* <GoPost /> */}
 
@@ -132,8 +133,8 @@ const HomeProblem = ({ problem }) => {
           {/* 여기부터는 모달 내부 내용 */}
           <ModalBack>
             <ModalHead>
-              <h1>{selectedProblem.nickname}</h1>
-              <button onClick={closeModal}>Close</button>
+              <ModalName>{selectedProblem.nickname}</ModalName>
+              <ModalClose onClick={closeModal} />
             </ModalHead>
             
             <hr style={{ height: '2px', background: 'black' , borderWidth: '2px'}} />
@@ -166,9 +167,10 @@ HomeProblem.defaultProps = {
 export default HomeProblem;
 
 const PwdSearch = styled.div`
-  border : 1px solid red;
   display: flex;
   flex-direction: row;
+  margin-top: 3vh;
+  height: 50px;
 `
 const InputPwd = styled.textarea`
   background-image: url('/img/입력창.png');
@@ -178,6 +180,7 @@ const InputPwd = styled.textarea`
   margin-right: 10px;
 `
 const Search = styled.button`
+  height:35px;
 `
 const Header = styled.div`
   height: 9vh;
@@ -282,8 +285,10 @@ const ModalHead = styled.div`
   flex-direction: row;
   width: 100%;
   height: 20vh;
-  border: 1px solid red;
-  justify-content: center;
+  margin-top: 3%;
+  padding-left: 5%;
+  justify-content: space-between;
+  
 `
 const LinkImage = styled.img`
   margin-top: 45vh;
@@ -305,4 +310,23 @@ const GoPost = styled.button`
 
 const FirstLinket=styled(Link)`
 
+`
+const SearchText = styled.div`
+  margin-top: 35px;
+  margin-right: 10px;
+  color : #737373;
+  font-size: 30px;
+  font-family: 'DungGeunMo';
+  width: fit-content;
+`;
+const Dummy = styled.div`
+width: 45vw;
+`
+
+const ModalName = styled.div`
+  font-size: 30px;
+  font-family: 'DungGeunMo';
+`;
+const ModalClose = styled.button`
+  background-image: url('/img/닫기.png');
 `
