@@ -3,6 +3,7 @@ import axios from "axios";
 import styled from "styled-components";
 import { useState,useEffect } from "react";
 import { Link,useNavigate } from "react-router-dom";
+
 const Post=()=>{
 
     const [categorykind,setcategorykind]= useState(null);
@@ -241,15 +242,20 @@ margin-top: 50px;
 `;
 
 const ScholarChoiceDiv = styled.div`
-  width: calc(100vw-170px);
-  height: 20vh;
-  background-color: rebeccapurple;
+width:100%;
   display: flex;
   flex-direction: row;
 `;
 
 const Scholars = styled.div`
-  width: auto;
+color: #FFF;
+text-align: center;
+font-family: DungGeunMo;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+  width: 100px;
   margin: 5px;
   background-color: aqua;
 `;
