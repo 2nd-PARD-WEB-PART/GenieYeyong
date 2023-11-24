@@ -8,6 +8,8 @@ const Post=()=>{
     const [categorykind,setcategorykind]= useState(null);
     const [nickname,setnickname] = useState("");
     const [writefield,setwritefiled] = useState("");
+    const [password,setpassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState(""); // New state for confirmation password
     const navigate = useNavigate();
 
 
@@ -43,6 +45,11 @@ const categoryToRoute = {
   };
   const handleSubmit = async(event) => {
     event.preventDefault();
+    if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return; // Prevent form submission
+    }
+
     // Here you can also handle the form submission, like sending data to an API
      // Check if any field is empty
      if (!nickname || !writefield || !categorykind) {
@@ -54,6 +61,7 @@ const categoryToRoute = {
         "nickname": nickname,
         "contents": writefield,
         "type": categorykind,
+        "password":password
        
       };
 
@@ -116,6 +124,18 @@ const categoryToRoute = {
         maxLength={200}
         required
         />
+          <input
+                type="text"
+                placeholder="Enter password"
+                onChange={(e) => setpassword(e.target.value)}
+                required
+            />
+            <input
+                type="text"
+                placeholder="Confirm password"
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
+            />
         </FormDiv>
     <button onClick={handleSubmit}>제출</button>
     <button onClick={()=>{navigate(-1)}}>취소</button>
