@@ -91,18 +91,25 @@ const categoryToRoute = {
           navigate(-1); // 뒤로 감
         }
       };
-    return(<div>
-        <FormDiv>
-        <div>닉네임이 뭔가용</div>
+    return(<Div>
+        <Updiv>
+        <button onClick={()=>{navigate(-1)}}>취소</button>
+        <Updivword>소원을 말해봐용</Updivword>
+        <img/>
+
+        </Updiv>
+        <Line/>
+        <Nickname>닉네임이 뭔가용</Nickname>
+
         <NicknameDiv>
-        <NicknameInput type="text" placeholder="갯춰크레용" onChange={(e)=>
+        <NicknameInput type="text" placeholder="닉네임" onChange={(e)=>
         setnickname(e.target.value)
         
         }
         maxLength={10}
 
         required/>
-        <div>넘어가면 속상해용..(짤려도 모름)</div>
+        <Smallword>넘어가면 속상해용..(짤려도 모름)</Smallword>
         </NicknameDiv>
         <ScholarDiv>
           <div>학부 선택해봐용</div>
@@ -136,9 +143,9 @@ const categoryToRoute = {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
             />
-        </FormDiv>
+       
     <button onClick={handleSubmit}>제출</button>
-    <button onClick={()=>{navigate(-1)}}>취소</button>
+
 
   
 
@@ -147,11 +154,51 @@ const categoryToRoute = {
 
         
 
-    </div>)
+    </Div>)
 }
 
 export default Post;
 
+const Div =styled.div`
+display: flex;
+flex-direction: column;
+background-color: #FEFAF8;;
+
+`
+
+const Updiv= styled.div`
+display: flex;
+flex-direction: row;
+width:100%;
+height: 95px;
+`
+const Updivword=styled.div`
+width:353px;
+padding-left: 31px;
+color: #000;
+font-family: DungGeunMo;
+font-size: 47px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+`
+
+const Line= styled.div`
+height: 1px;
+
+background-color: #936A00;
+`
+const Nickname =styled.div`
+margin-top: 67px;
+color: #737373;
+font-family: DungGeunMo;
+font-size: 29px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+width:218px;
+margin-left:140px;
+`
 
 const FormDiv = styled.div`
   width: calc(100vw-170px) ;
@@ -170,26 +217,27 @@ const FormDiv = styled.div`
 `;
 
 const NicknameDiv = styled.div`
-  width: calc(100vw-170px);
-  height: 80px;
-  background-color: aliceblue;
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  color: #737373;
-  font-family: DungGeunMo;
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+display: flex;
+flex-direction: row;
+width: 100%;
 `;
+const Smallword=styled.div`
+margin-left: 12px;
+color: #737373;
+font-family: DungGeunMo;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+width: 463px;
+padding-top: 35px;
+`
 
 const ScholarDiv = styled.div`
-  width: calc(100vw-170px);
-  height: 20vh;
-  background-color: gainsboro;
+margin-top: 50px;
   display: flex;
   flex-direction: column;
+  margin-left:136px ;
 `;
 
 const ScholarChoiceDiv = styled.div`
@@ -210,6 +258,7 @@ const Scholars = styled.div`
 
 
 const NicknameInput = styled.input`
+margin-left: 136px;
   width: 500px;
   height: 60px;
   border: 4px solid #FFB800;
