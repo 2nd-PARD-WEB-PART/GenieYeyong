@@ -198,7 +198,7 @@ const Prev = styled.div`
 `
 const Major = styled.div`
   margin: 25px;
-  width: fit-content;
+  width: auto;
   height: 47px;
   font-size: 50px;
   font-family: 'DungGeunMo';

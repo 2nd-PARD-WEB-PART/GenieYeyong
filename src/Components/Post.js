@@ -154,7 +154,7 @@ const categoryToRoute = {
         
         <NewYear>
         <NewYearWord>새해 다짐을 적어봐용</NewYearWord>
-        <NewYearInput type="text" onChange={(e)=>
+        <NewYearInput type="text" placeholder="ex.컴활1급 자격증 따기" onChange={(e)=>
         setwritefiled(e.target.value)} 
         maxLength={200}
         required
@@ -264,11 +264,11 @@ cursor: pointer;
 padding-top: 12px;
 `
 const CategoryContainer = styled.div`
-width: 70%;
+width: 80%;
+margin-left: -15px;
   display: flex;
   flex-wrap: wrap;
   //background: #f3f3f3; // Replace with the color you want
-  padding: 10px;
   border-radius: 5px; // Adjust as needed
 `;
 
@@ -283,8 +283,9 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
   cursor: pointer;
-  margin: 5px;
+  margin: 10px;
   transition: background-color 0.3s, color 0.3s;
+  padding: 7px 24px;
 
   &:hover {
     background: #FFB800;
@@ -343,6 +344,7 @@ height: 95px;
 align-items: center;
 `
 const BackArrowImg=styled.img`
+margin-left: 30px;
 width: 47px;
 height: 47px;
 flex-shrink: 0;
@@ -358,6 +360,8 @@ font-weight: 400;
 line-height: normal;
 `
 const DragonImg = styled.img`
+margin-left: 20px;
+padding-bottom: 10px;
 width: 56.036px;
 height: 59.9px;
 flex-shrink: 0;
@@ -409,7 +413,7 @@ font-style: normal;
 font-weight: 400;
 line-height: normal;
 width: 463px;
-padding-top: 35px;
+padding-top: 45px;
 `
 
 const ScholarDiv = styled.div`
@@ -443,23 +447,39 @@ font-weight: 400;
 line-height: normal;
 `;
 
-const NewYearInput = styled.div`
+const NewYearInput = styled.textarea`
+margin-top: 10px;
 width: 794px;
 height: 190px;
 flex-shrink: 0;
 border: 4px solid #FFB800;
 background: #FFF;
+padding-top:13px;
+font-family: DungGeunMo;
+font-size: 34px;
+font-style: normal;
+font-weight: 400;
+&::placeholder {
+  padding-top:13px;
+font-family: DungGeunMo;
+font-size: 34px;
+font-style: normal;
+font-weight: 400;
+
+    color: #D1D1D1;
+    padding-left: 20px;
+  }
 `
 
 
 
 const NicknameInput = styled.input`
+margin-top: 10px;
 margin-left: 136px;
   width: 500px;
-  height: 60px;
+  height: 50px;
   border: 4px solid #FFB800;
   background: #FFF;
-  color: #D1D1D1;
 font-family: DungGeunMo;
 font-size: 34px;
 font-style: normal;
@@ -467,6 +487,7 @@ font-weight: 400;
 line-height: normal;
 &::placeholder {
     color: #D1D1D1;
+    padding-left: 20px;
   }
 `;
 
@@ -482,12 +503,12 @@ display: flex;
 flex-direction: column;
 `
 const PasswordInput = styled.input`
+margin-top: 10px;
 width: 479px;
-height: 56px;
+height: 50px;
 flex-shrink: 0;
 border: 3px solid #FFB800;
 background: #FFF;
-color: #D1D1D1;
 font-family: DungGeunMo;
 font-size: 34px;
 font-style: normal;
@@ -495,15 +516,16 @@ font-weight: 400;
 line-height: normal;
 &::placeholder {
     color: #D1D1D1;
+    padding-left: 20px;
   }
 `
 const CheckPasswordInput = styled.input`
+margin-top: 10px;
 width: 479px;
-height: 56px;
+height: 50px;
 flex-shrink: 0;
 border: 3px solid #FFB800;
 background: #FFF;
-color: #D1D1D1;
 font-family: DungGeunMo;
 font-size: 34px;
 font-style: normal;
@@ -511,6 +533,7 @@ font-weight: 400;
 line-height: normal;
 &::placeholder {
     color: #D1D1D1;
+    padding-left: 20px;
   }
 `
 
