@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import cancel from"../Assets/취소.png";
 
 const HomeProblem = ({ problem }) => {
   const [selectedProblem, setSelectedProblem] = useState(null);
@@ -115,11 +116,12 @@ const HomeProblem = ({ problem }) => {
               backgroundRepeat: "no-repeat",
               margin: "0 auto",
               width: "1600px", // 가로는 60%의 viewport width
-              height: "60vh", // 세로는 60%의 viewport height
+              height: "673px", // 세로는 60%의 viewport height
               display: "flex",
               border: "none",
               alignItems: "center",
               overflowY: "hidden",
+              
               // borderRadius: "13px",
               display: "flex",
               flexDirection: "column",
@@ -134,13 +136,13 @@ const HomeProblem = ({ problem }) => {
           <ModalBack>
             <ModalHead>
               <ModalName>{selectedProblem.nickname}</ModalName>
-              <ModalClose onClick={closeModal} />
+              <ModalClose src={cancel} onClick={closeModal} />
             </ModalHead>
             
-            <hr style={{ height: '2px', background: 'black' , borderWidth: '2px'}} />
-            <p>{selectedProblem.nickname}</p>
-            <p>{selectedProblem.text}</p>
-            <PwdSearch>
+            
+            <Modaltext>{selectedProblem.contents}</Modaltext>
+                        <PwdSearch1>
+                          <Pwdtext>비밀번호 : </Pwdtext>
               <InputPwd onChange={(e) => {
                 setSearchValue(e.target.value);
                 // 비밀번호가 일치하는지 확인하여 Search 버튼 활성화
@@ -149,7 +151,7 @@ const HomeProblem = ({ problem }) => {
               <Search style={{ backgroundColor: deleteButtonActive ? 'red' : 'gray' }} onClick={() => handleDelete(selectedProblem.password, selectedProblem.id)}>
                 삭제
               </Search>
-            </PwdSearch>
+            </PwdSearch1>
             <br />
           </ModalBack>
         </Modal>
@@ -166,10 +168,40 @@ HomeProblem.defaultProps = {
 
 export default HomeProblem;
 
+const Pwdtext=styled.div`
+color: #000;
+text-align: center;
+font-family: DungGeunMo;
+font-size: 34px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+padding-left: 270px;
+`
+const Modaltext=styled.div`
+color: #000;
+margin-top: -80px;
+font-family: DungGeunMo;
+font-size: 34px;
+font-style: normal;
+font-weight: 400;
+
+margin-left: 40px;
+`
+
 const PwdSearch = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 3vh;
+  height: 50px;
+`
+
+const PwdSearch1 = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  margin-top: 370px;
+  
   height: 50px;
 `
 const InputPwd = styled.textarea`
@@ -178,6 +210,14 @@ const InputPwd = styled.textarea`
   width:fit-content;
   height:fit-content;
   margin-right: 10px;
+  margin-left: 10px;
+  color: #000;
+text-align: center;
+font-family: DungGeunMo;
+line-height: normal;
+font-style: normal;
+font-weight: 400;
+
 `
 const Search = styled.button`
   height:35px;
@@ -209,6 +249,7 @@ const BigBox = styled.div`
   justify-content: center;
 `
 const PListBox = styled.div`
+cursor: pointer;
   color: white;
   justify-content: flex-start;
   width: 100px;
@@ -276,8 +317,8 @@ const TitleImg = styled.img`
 
 const ModalBack = styled.div`
   background-image: url('/img/모달배경.png');
-  width: 60vw;
-  height: 60vh;
+  width: 700px;
+  height: 600px;
 `
 
 const ModalHead = styled.div`
@@ -287,7 +328,7 @@ const ModalHead = styled.div`
   height: 20vh;
   margin-top: 3%;
   padding-left: 5%;
-  justify-content: space-between;
+  //justify-content: space-between;
   
 `
 const LinkImage = styled.img`
@@ -324,9 +365,14 @@ width: 45vw;
 `
 
 const ModalName = styled.div`
+width: 200px;
   font-size: 30px;
   font-family: 'DungGeunMo';
 `;
-const ModalClose = styled.button`
-  background-image: url('/img/닫기.png');
+const ModalClose = styled.img`
+cursor:pointer;
+width: 14px;
+height: 14px;
+  margin-left: 420px;
+  //background-image: url('/img/닫기.png');
 `
