@@ -76,7 +76,7 @@ const HomeProblem = ({ problem }) => {
         <SearchText>내가 쓴 글 찾아용</SearchText>
         <PwdSearch>
         <InputPwd onChange={(e) => setSearchValue(e.target.value)} />
-        <Search onClick={handleSearch}>검색</Search>
+        <Search onClick={handleSearch} />
         </PwdSearch>
       </Header>
 
@@ -155,9 +155,9 @@ const HomeProblem = ({ problem }) => {
                 setDeleteButtonActive(e.target.value === selectedProblem.password);}} style={{ fontFamily: 'DungGeunMo', alignItems: 'center',
                 justifyContent: 'center', paddingTop: '1.5%'}}
               />
-              <Search style={{ backgroundColor: deleteButtonActive ? 'red' : 'gray' }} onClick={() => handleDelete(selectedProblem.password, selectedProblem.id)}>
+              <Delete style={{ backgroundColor: deleteButtonActive ? 'red' : 'gray' }} onClick={() => handleDelete(selectedProblem.password, selectedProblem.id)}>
                 
-              </Search>
+              </Delete>
             </PwdSearch1>
             <br />
           </ModalBack>
@@ -203,12 +203,17 @@ const PwdSearch = styled.div`
   height: 50px;
 `
 
+const PwdDelete = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 3vh;
+  height: 50px;
+`
+
 const PwdSearch1 = styled.div`
   display: flex;
   flex-direction: row;
-
   margin-top: 370px;
-  
   height: 50px;
 `
 const InputPwd = styled.textarea`
@@ -226,12 +231,19 @@ font-style: normal;
 font-weight: 400;
 
 `
-const Search = styled.button`
+const Delete = styled.button`
   height:35px;
   width: 35px;
   background-image: url('/img/삭제버튼.png');
   background-size: 30px 30px; // 원하는 크기로 조절
 `
+const Search = styled.button`
+  height:35px;
+  width: 35px;
+  background-image: url('/img/찾기.png');
+  background-size: 30px 30px; // 원하는 크기로 조절
+`
+
 const Header = styled.div`
   height: 9vh;
   background-color: white;
