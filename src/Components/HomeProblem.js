@@ -164,6 +164,9 @@ const HomeProblem = ({ problem }) => {
         </Modal>
         )}
       </Body>
+      {problem.length === 0 && (
+        <div>불러온 데이터가 없습니다.</div>
+      )}
     </div>
     </Back>
   );
