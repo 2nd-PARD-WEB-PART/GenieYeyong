@@ -165,7 +165,7 @@ const HomeProblem = ({ problem }) => {
         )}
       </Body>
       {problem.length === 0 && (
-        <div>불러온 데이터가 없습니다.</div>
+        <h1>불러온 데이터가 없습니다<br />DB가 켜져있는지 옆에 물어봐요!</h1> 
       )}
     </div>
     </Back>
