@@ -64,7 +64,7 @@ const HomeProblem = ({ problem }) => {
                 <Header>
                     <Prev onClick={goBack} />
                     {problem.length > 0 && <Major>{problem[0].type}</Major>}
-                    <TitleImg src={"./img/용용이.png"} />
+                    <TitleImg src={"./img/YYE.png"} />
                     <Dummy> </Dummy>
                     <SearchText>내가 쓴 글 찾아용</SearchText>
                     <PwdSearch>
@@ -95,7 +95,7 @@ const HomeProblem = ({ problem }) => {
                     {/* <GoPost /> */}
 
                     <FirstLinket to="/Post">
-                        <LinkImage src={"./img/작성버튼.png"} />
+                        <LinkImage src={"./img/Write.png"} />
                     </FirstLinket>
 
                     {selectedProblem && (
@@ -217,7 +217,7 @@ const PwdSearch1 = styled.div`
     height: 50px;
 `;
 const InputPwd = styled.textarea`
-    background-image: url("/img/입력창.png");
+    background-image: url("/img/SearchBar.png");
     background-size: cover;
     width: fit-content;
     height: fit-content;
@@ -233,13 +233,13 @@ const InputPwd = styled.textarea`
 const Delete = styled.button`
     height: 35px;
     width: 35px;
-    background-image: url("/img/삭제버튼.png");
+    background-image: url("/img/Delete.png");
     background-size: 30px 30px; // 원하는 크기로 조절
 `;
 const Search = styled.button`
     height: 35px;
     width: 35px;
-    background-image: url("/img/찾기.png");
+    background-image: url("/img/Search.png");
     background-size: 30px 30px; // 원하는 크기로 조절
 `;
 
@@ -283,29 +283,29 @@ const PListBox = styled.div`
     background-image: ${(props) => {
         switch (props.type) {
             case "글로벌리더십":
-                return 'url("/img/복주머니/Gls.png")';
+                return 'url("/img/복주머니/GLS.png")';
             case "국제어문":
-                return 'url("/img/복주머니/국제어문.png")';
+                return 'url("/img/복주머니/INT.png")';
             case "경영경제":
-                return 'url("/img/복주머니/경경.png")';
+                return 'url("/img/복주머니/ECO.png")';
             case "법":
-                return 'url("/img/복주머니/법.png")';
+                return 'url("/img/복주머니/LAW.png")';
             case "커뮤니케이션":
-                return 'url("/img/복주머니/컴케.png")';
+                return 'url("/img/복주머니/COM.png")';
             case "공간환경시스템":
-                return 'url("/img/복주머니/공시.png")';
+                return 'url("/img/복주머니/BUL.png")';
             case "기계제어":
-                return 'url("/img/복주머니/기계.png")';
+                return 'url("/img/복주머니/MEC.png")';
             case "상담심리사회복지":
-                return 'url("/img/복주머니/상사.png")';
+                return 'url("/img/복주머니/COU.png")';
             case "생명과학":
-                return 'url("/img/복주머니/생명.png")';
+                return 'url("/img/복주머니/LIFE.png")';
             case "전산전자":
-                return 'url("/img/복주머니/전전.png")';
+                return 'url("/img/복주머니/CSEE.png")';
             case "ICT창업":
                 return 'url("/img/복주머니/ICT.png")';
             case "콘텐츠융합디자인":
-                return 'url("/img/복주머니/콘융디.png")';
+                return 'url("/img/복주머니/CON.png")';
             default:
                 return "gray";
         }
@@ -323,7 +323,7 @@ const Body = styled.div`
     background-color: transparent;
 `;
 const Back = styled.div`
-    background: url("./img/학부배경.jpeg") no-repeat;
+    background: url("./img/Back.jpeg") no-repeat;
     width: 100vw; // 전체 화면 너비
     height: 100vh; // 전체 화면 높이
     background-size: cover; // 이미지가 컨테이너에 맞게 cover되도록 설정
@@ -336,7 +336,7 @@ const TitleImg = styled.img`
 `;
 
 const ModalBack = styled.div`
-    background-image: url("/img/모달배경.png");
+    background-image: url("/img/ModalBack.png");
     width: 700px;
     height: 600px;
 `;
@@ -353,7 +353,7 @@ const ModalHead = styled.div`
 const LinkImage = styled.img`
     margin-top: 40vh;
     margin-left: 80vw;
-    background-image: url("/img/작성버튼.png");
+    background-image: url("/img/Write.png");
     background-size: cover;
     width: 284px;
     height: 98px;
@@ -362,7 +362,7 @@ const LinkImage = styled.img`
 const GoPost = styled.button`
     margin-top: 45vh;
     margin-left: 80vw;
-    background-image: url("/img/작성버튼.png");
+    background-image: url("/img/Write.png");
     background-size: cover;
     width: 284px;
     height: 98px;
