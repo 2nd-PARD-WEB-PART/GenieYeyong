@@ -269,7 +269,7 @@ const Div = styled.div`
     flex-direction: column;
     background-color: #fefaf8;
     width: 100%;
-    height: 1200px;
+    height: 100vh;
     overflow-x: hidden;
     overflow-y: hidden;
 `;
