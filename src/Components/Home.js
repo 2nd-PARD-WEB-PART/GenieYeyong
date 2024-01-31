@@ -1,4 +1,5 @@
 /* disable-eslint */
+// 파일 이름은 영어로 바꾸어야 함
 
 import React, { useEffect } from "react";
 import HomeProblem from "./HomeProblem";
