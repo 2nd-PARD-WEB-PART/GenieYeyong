@@ -11,7 +11,6 @@ import cancel from "../Assets/취소.png";
 import Middleimg from "../Assets/취소이미지.png";
 import Middlewrite from "../Assets/문구.png";
 import MiddleOK from "../Assets/확인.png";
-import "../App.css";
 
 // 아래 정리
 const Post = () => {
@@ -74,7 +73,7 @@ const Post = () => {
         };
 
         try {
-            const response = await axios.post("http://172.18.140.44:8080/wish2024/wishWrite", formData);
+            const response = await axios.post("http://118.67.134.77:8080/wish2024/wishWrite", formData);
             console.log(response.data);
         } catch (error) {
             console.error("Error submitting form:", error);

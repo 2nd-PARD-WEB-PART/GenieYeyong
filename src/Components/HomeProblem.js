@@ -38,7 +38,7 @@ const HomeProblem = ({ problem }) => {
             return;
         }
         axios
-            .delete(`http://172.18.140.44:8080/wish2024/deleteWish/${id}`, {
+            .delete(`http://118.67.134.77:8080/wish2024/deleteWish/${id}`, {
                 data: { password: password },
             })
             .then((response) => {

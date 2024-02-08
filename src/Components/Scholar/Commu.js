@@ -9,10 +9,12 @@ const Commu = () => {
 
     useEffect(() => {
         axios
-            .get("http://172.18.140.44:8080/wish2024/findTypeWish/커뮤니케이션")
+            .get("http://118.67.134.77:8080/wish2024/findTypeWish/커뮤니케이션")
             .then((response) => {
                 console.log("response: " + JSON.stringify(response.data.data));
-                setData(response.data.data);
+                if (response.data.data && response.data.data.length > 0) {
+                    setData(response.data.data);
+                }
             })
             .catch((error) => console.log("error: " + error));
     }, []);
