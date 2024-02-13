@@ -13,6 +13,7 @@ import Middlewrite from "../Assets/문구.png";
 import MiddleOK from "../Assets/확인.png";
 
 // 아래 정리
+//ㅇㄹ
 const Post = () => {
     const [categorykind, setcategorykind] = useState(null);
     const [nickname, setnickname] = useState("");
