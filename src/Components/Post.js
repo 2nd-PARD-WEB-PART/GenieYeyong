@@ -14,6 +14,7 @@ import MiddleOK from "../Assets/확인.png";
 
 // ㅇㄹ
 // 아래 정리
+// ㅓㅛㅗ
 //ㅇㄹ
 const Post = () => {
     const [categorykind, setcategorykind] = useState(null);
