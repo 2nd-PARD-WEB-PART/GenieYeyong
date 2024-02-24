@@ -12,10 +12,7 @@ import Middleimg from "../Assets/취소이미지.png";
 import Middlewrite from "../Assets/문구.png";
 import MiddleOK from "../Assets/확인.png";
 
-// ㅇㄹ
-// 아래 정리
-// ㅓㅛㅗ
-//ㅇㄹ
+// 240224 - ver2로 재시작 예정
 const Post = () => {
     const [categorykind, setcategorykind] = useState(null);
     const [nickname, setnickname] = useState("");
